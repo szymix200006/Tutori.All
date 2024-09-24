@@ -1,0 +1,55 @@
+.navbar-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    z-index: 1;
+    padding: 40px;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+}
+
+.navbar-logo {
+    margin-right: auto;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.navbar-login-button {
+    background: none;
+}
+
+.navbar-upload-button {
+    background-color: #0bc20b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.navbar-link {
+    text-decoration: none;
+}
+
+.navbar-login-button:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.navbar-upload-button:hover {
+    background-color: #0bc20bdd;
+}
