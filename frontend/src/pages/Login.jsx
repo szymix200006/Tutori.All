@@ -5,7 +5,8 @@ import Logo_Big_Black from '../assets/Logo_Big_Black.png'
 const Login = () => {
   return (
     <div className='login-page-container'>
-      <img src="" alt="" className="login-page-header" />
+      <img src={Logo_Big_Black} alt="login-page-header" className="login-page-header" />
+      
     </div>
   )
 }
