@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-image: url('/Login_Background.jpg')
+    background-image: url('/Sign_Up_Background.jpg')
 }
 
 .login-header {

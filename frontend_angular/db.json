@@ -1,0 +1,130 @@
+{
+    "tutorials": [
+        {
+            "id": 0,
+            "imageSrc": "/math.png",
+            "title": "How to math",
+            "author": "John Smith",
+            "category": "math"
+        },
+        {
+            "id": 1,
+            "imageSrc": "/ai.png",
+            "title": "How to AI",
+            "author": "John Smith",
+            "category": "ai"
+        },
+        {
+            "id": 2,
+            "imageSrc": "/programming.png",
+            "title": "How to programming",
+            "author": "John Smith",
+            "category": "programming"
+        },
+        {
+            "id": 3,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 4,
+            "imageSrc": "/math.png",
+            "title": "How to math",
+            "author": "John Smith",
+            "category": "math"
+        },
+        {
+            "id": 5,
+            "imageSrc": "/programming.png",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 6,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to math",
+            "author": "John Smith",
+            "category": "math"
+        },
+        {
+            "id": 7,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to AI",
+            "author": "John Smith",
+            "category": "ai"
+        },
+        {
+            "id": 8,
+            "imageSrc": "/ai.png",
+            "title": "How to programming",
+            "author": "John Smith",
+            "category": "programming"
+        },
+        {
+            "id": 9,
+            "imageSrc": "/math.png",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 10,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 11,
+            "imageSrc": "/ai.png",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 12,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to math",
+            "author": "John Smith",
+            "category": "math"
+        },
+        {
+            "id": 13,
+            "imageSrc": "/math.png",
+            "title": "How to AI",
+            "author": "John Smith",
+            "category": "ai"
+        },
+        {
+            "id": 14,
+            "imageSrc": "/math.png",
+            "title": "How to programming",
+            "author": "John Smith",
+            "category": "programming"
+        },
+        {
+            "id": 15,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 16,
+            "imageSrc": "/ai.png",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        },
+        {
+            "id": 17,
+            "imageSrc": "/Sign_Up_Background.jpg",
+            "title": "How to geography",
+            "author": "John Smith",
+            "category": "geography"
+        }
+    ]
+}

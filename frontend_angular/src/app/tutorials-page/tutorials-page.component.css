@@ -1,0 +1,12 @@
+.tutorials {
+    margin-top: 10vh; 
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: row;
+    gap: 10px;
+}

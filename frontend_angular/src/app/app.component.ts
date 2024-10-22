@@ -10,7 +10,10 @@ import { CommonModule } from '@angular/common';
   imports: [RouterOutlet, HeaderComponent, CommonModule],
   template: `
     <main class='app-container'>
-      <app-header *ngIf="router.url !== '/login'"/>
+      <app-header *ngIf="(router.url !== '/login') && (router.url !== '/signup') && (router.url !== '/upload') && (router.url !== '/'); else homeAppHeader" logoSrc="/Logo_Small_Black.png" loginBtnColor="black"/>
+      <ng-template #homeAppHeader>
+      <app-header  *ngIf="(router.url !== '/login') && (router.url !== '/signup') && (router.url !== '/upload')" logoSrc="/Logo_Small.png" loginBtnColor="white"/>
+      </ng-template>
       <router-outlet />
     </main>
 

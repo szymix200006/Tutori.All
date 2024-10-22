@@ -9,10 +9,15 @@
 
 .search-input-icon {
     color: #778899;
+    background-color: white;
     width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.search-input-icon:hover {
+    background-color: #ebeef1;
 }
 
 .search-input {

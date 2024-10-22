@@ -10,26 +10,9 @@
     justify-content: flex-end;
     align-items: center;
     position: absolute;
+    box-shadow: 0 0 5px grey;
 }
 
 .header-logo {
     margin-right: auto;
 }
-
-.navbar {
-    display: flex;
-    gap: 20px;
-}
-
-.navbar-login-button {
-    background: none;
-}
-
-.navbar-link {
-    text-decoration: none;
-}
-
-.navbar-login-button:hover {
-    background-color: rgba(0,0,0,0.3);
-}
-
