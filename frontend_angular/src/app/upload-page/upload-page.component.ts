@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HeaderUploadComponent } from '../header-upload/header-upload.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { inject } from '@angular/core';
           Write your LaTeX here
         </h1>
         <form class="upload-form" [formGroup]="latexForm">
-          <textarea placeholder="Write here" class="upload-latex" formControlName="latex"></textarea>
+          <textarea placeholder="Write here" class="upload-latex" formControlName="latex" (change)="onLatexChange()"></textarea>
             <button class="primary">
               <label for="latex-files">Add Files</label>
             </button>
@@ -40,7 +40,7 @@ import { inject } from '@angular/core';
         <h1 class="upload-header">
           Preview
         </h1>
-        <article class="upload-preview-content">
+        <article class="upload-preview-content" #outputContainer>
 
         </article>
       </section>
@@ -50,7 +50,8 @@ import { inject } from '@angular/core';
   styleUrl: './upload-page.component.css'
 })
 export class UploadPageComponent {
-  // latexService: LatexServiceService = inject(LatexServiceService);
+  @ViewChild('outputContainer', { static: true }) outputContainer!: ElementRef;
+  latexService: LatexServiceService = inject(LatexServiceService);
 
   latexForm = new FormGroup<{latex: FormControl<string | null>, files: FormControl<File[] | null>}>({
     latex: new FormControl(''),
@@ -76,10 +77,10 @@ export class UploadPageComponent {
     this.latexForm.patchValue({...this.latexForm, files: updatedFiles});
   }
 
-  // onLatexChange() {
-  //   const element = document.querySelector('.upload-preview-content') as HTMLElement;
-  //   if(this.latexForm.value.latex) {
-  //     this.latexService.renderLatex(this.latexForm.value.latex, element);
-  //   }
-  // }
+  onLatexChange() {
+    if(this.latexForm.value.latex){
+      const latex = this.latexService.renderLatex(this.latexForm.value.latex);
+      this.outputContainer.nativeElement = latex;
+    }
+  }
 }
