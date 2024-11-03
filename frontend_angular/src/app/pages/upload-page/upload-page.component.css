@@ -1,0 +1,85 @@
+.upload-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    height: 90vh;
+}
+
+.upload {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-header {
+    font-size: 32px;
+}
+
+.upload-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.upload-latex {
+    width: 100%;
+    height: 70vh;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    font-size: 16px;
+    resize: none;
+}
+
+.upload-column {
+    width: 50%;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.upload-preview-content {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid grey;
+}
+
+.upload-selected-files-header {
+    font-size: 16px;
+}
+
+.upload-selected-files-list {
+    list-style-type: none;
+}
+
+.upload-selected-file {
+    display: flex;
+    align-items: center;
+}
+
+.upload-delete-selected-file {
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-delete-selected-file-icon {
+    color: black;
+    transition: 0.5s;
+}
+
+.upload-delete-selected-file-icon:hover {
+    color: red;
+}
+
+.upload-preview-content {
+    padding: 20px;
+    box-sizing: border-box;
+}

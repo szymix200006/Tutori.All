@@ -3,14 +3,15 @@ declare module 'latex.js' {
   
     export class HTMLGenerator {
       document: Document;
+      constructor({hyphenate: boolean}) {}
       render: (doc: Document) => HTMLElement;
     }
   
     export class Parser {
-      parse: (latex: string) => Document;
+      parse: (latex: string, {generator: HTMLGenerator}) => Document;
     }
   
-    export function parse(latex: string): Document;
+    export function parse(latex: string, {generator: HTMLGenerator}): Document;
   
     export class Document {
       htmlDocument(): DocumentFragment;
