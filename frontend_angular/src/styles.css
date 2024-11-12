@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import '../node_modules/ng-katex/node_modules/katex/dist/katex.css';
 
 * {
     margin: 0;
@@ -7,7 +8,7 @@
     font-family: 'Nunito Sans';
 }
 
-input[type="file"] {
+.no-display-file-input {
     display: none;
 }
 

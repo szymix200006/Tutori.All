@@ -2,6 +2,7 @@ package com.example.demo.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -20,7 +21,8 @@ public class Tutorial {
     @Id
     @GeneratedValue
     private Integer id;
-    private Blob cover;
+    @Lob
+    private byte[] cover;
     private String title;
     private String contents;
 
@@ -32,8 +34,15 @@ public class Tutorial {
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Media> mediaList;
+   @CreatedBy
+   @Column(nullable = false, updatable = false)
+   private Integer createdBy;
 
-    //1:39:11
+    @ElementCollection
+    @CollectionTable(name = "document_blobs", joinColumns = @JoinColumn(name = "document_id"))
+    @Column(name = "content", columnDefinition = "BLOB")
+    @Lob
+    private List<byte[]> mediaList;
+
+
 }

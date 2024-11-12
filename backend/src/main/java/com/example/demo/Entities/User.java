@@ -1,5 +1,6 @@
 package com.example.demo.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -37,7 +38,11 @@ public class User implements UserDetails, Principal {
     private boolean accountLocked;
     private boolean enabled;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Tutorial> tutorials;
+
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
     @CreatedDate
