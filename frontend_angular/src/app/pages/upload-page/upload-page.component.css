@@ -13,54 +13,61 @@
     height: 100%;
 }
 
-.upload-header {
-    font-size: 32px;
+.upload-info {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .upload-form {
     width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
 }
 
-.upload-latex {
-    width: 100%;
-    height: 60vh;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid grey;
-    font-size: 16px;
-    resize: none;
-}
-
-.upload-column {
+.form-column {
     width: 50%;
-    padding: 25px;
-    box-sizing: border-box;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    padding: var(--spacing-400);
+    box-sizing: border-box;
+    align-items: center;
+    gap: var(--spacing-200);
 }
 
-.upload-preview-content {
-    width: 100%;
-    height: 80vh;
-    border: 1px solid grey;
+.form-file-wrapper {
+    width: 24rem;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--clr-dark);
+    font-size: var(--ft-size-200);
+    border-radius: 0.75rem;
 }
 
-.upload-selected-files-header {
-    font-size: 16px;
+.submit-latex-button {
+    margin-top: auto;
 }
 
 .upload-selected-files-list {
     list-style-type: none;
+    padding: var(--spacing-400);
+    box-sizing: border-box;
 }
 
 .upload-selected-file {
     display: flex;
     align-items: center;
+    flex-direction: row;
+}
+
+.upload-delete-selected-file-icon {
+    color: var(--clr-dark);
+}
+
+.upload-delete-selected-file-icon:hover {
+    color: var(--clr-error);
 }
 
 .upload-delete-selected-file {
@@ -70,48 +77,60 @@
     justify-content: center;
 }
 
-.upload-delete-selected-file-icon {
-    color: black;
-    transition: 0.5s;
-}
-
-.upload-delete-selected-file-icon:hover {
-    color: red;
-}
-
-.upload-preview-content {
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.tutorial-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.upload-files {
     width: 100%;
-    height: 7.5vh;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+}
+
+.cover-label {
+    background-color: var(--clr-primary);
+    padding: var(--spacing-200);
+    box-sizing: border-box;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    border-right: 1px solid var(--clr-dark);
+}
+
+.cover-text {
+    padding: var(--spacing-200);
+    color: var(--clr-secondary)
 }
 
 .tutorial-info-label {
-    gap: 10px;
-    font-size: 16px;
     display: flex;
     flex-direction: column;
+}
+
+.tutorial-cover-file {
+    display: none;
+}
+
+.upload-latex {
+    height: 100%;
+    padding: var(--spacing-300);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.upload-preview-container {
     width: 50%;
+    height: 100%;
+    padding: var(--spacing-400);
+    box-sizing: border-box;
 }
 
-.tutorial-info-input-text {
-    font-size: 20px;
-    width: 90%;
-    padding: 5px 10px;
-}
-
-.tutorial-info-input-file {
-    font-size: 16px;
-    padding-top: 7px;
+.upload-preview {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--clr-dark);
 }
 
 small {
-    color: red;
+    color: var(--clr-error);
 }
+
+
+
 

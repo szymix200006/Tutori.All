@@ -12,13 +12,12 @@ public record TutorialRequest(
         @NotNull(message = "Title cannot be null")
         @NotEmpty(message = "Title cannot be empty")
         String title,
-
-        byte[] cover,
         @NotNull(message = "Contents cannot be null")
         @NotEmpty(message = "Contents cannot be empty")
         String contents,
+        String category
 
-        List<byte[]> files
+        //List<String> files
 )
 {
 }

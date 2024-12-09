@@ -17,15 +17,15 @@
 }
 
 .tutorial-icon-title {
-    font-size: 24px;
+    font-size: var(--ft-size-400);
 }
 
 .tutorial-icon-author {
-    font-size: 16px;
+    font-size: var(--ft-size-200);
 }
 
 .tutorial-icon-category {
-    font-size: 12px;
+    font-size: var(--ft-size-100);
 }
 
 .tutorial-icon:hover {
@@ -34,5 +34,5 @@
 
 .tutorial-link {
     text-decoration: none;
-    color: black;
+    color: var(--clr-dark);
 }

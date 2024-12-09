@@ -6,4 +6,5 @@ export interface TutorialIcon {
     title: string;
     author: string;
     category: TutorialCategory | '';
+    createdAt: string;
 }

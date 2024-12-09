@@ -71,6 +71,10 @@ public class User implements UserDetails, Principal {
         return email;
     }
 
+    public String getFullUsername() {
+        return this.username;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

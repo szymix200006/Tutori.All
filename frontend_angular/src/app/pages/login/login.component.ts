@@ -11,13 +11,16 @@ import { TokenServiceService } from '../../services/token-service.service';
   imports: [ReactiveFormsModule, CommonModule, RouterModule],
   template: `
     <main class="login">
-      <header class="login-header">
-        <img src="/Logo_Big_Black.png" alt="logo-black">
-      </header>
-      <section class="form-wrapper">
-        <form [formGroup]="loginForm" (submit)="submitLoginForm()" class='login-form'>
-          <h3 class="form-header">Login</h3>
-          <section class="input-wrapper">
+      <section class="hero-section-wrapper">
+        <section class="hero-header">
+          <img src="/Logo_Small.png" alt="logo">
+        </section>
+        <h2 class="hero-section light">New way of learning</h2>
+      </section>
+      
+        <form [formGroup]="loginForm" (submit)="submitLoginForm()" class='form-wrapper'>
+          <h3 class="dark bold">Log In</h3>
+          <section class="form-input-wrapper">
             <label for="email" class="form-label">Email</label>
             <input required type="text" id="email" class="form-input" formControlName="email">
             <small *ngIf="email?.invalid && (email?.dirty || email?.touched)" class='form-error'>
@@ -25,7 +28,7 @@ import { TokenServiceService } from '../../services/token-service.service';
             </small>
           </section>
 
-          <section class="input-wrapper">
+          <section class="form-input-wrapper">
             <label for="password" class="form-label">Password</label>
             <input required type="password" id="password" class="form-input" formControlName="password">
             <small *ngIf="password?.invalid && (password?.dirty || password?.touched)" class='form-error'>
@@ -34,15 +37,14 @@ import { TokenServiceService } from '../../services/token-service.service';
           </section>
 
           <section class="auth-errors">
-            <small *ngFor="let error of errors">{{error}}</small>
+            <small *ngFor="let error of errors" class="form-error">{{error}}</small>
           </section>
 
-          <span class="signup-link">Don't have an account? <a  routerLink="/signup">Sign up</a></span>
+          <span class="signup-link">Don't have an account? <a class="primary" routerLink="/signup">Sign up</a></span>
 
           <button type="submit" class="primary">Login</button>
         </form>
-        <img src="/Login.png" alt="form-image" class='form-image'>
-      </section>
+      
     </main>
   `,
   styleUrl: './login.component.css'

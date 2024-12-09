@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { CustomHtmlWithProps, ElementValueObj, MediaHtmlProperties, StaticHtmlProperties } from '../utils/types';
 import katex from 'katex';
+import { BlobResponse } from '../utils/blob-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LatexServiceService {
-    generate(text: string, files: File[] | null | undefined): HTMLDivElement {
+    generate(text: string, files: File[] | BlobResponse[] | null | undefined): HTMLDivElement {
         const project = this.generateValidObject(text);
         return this.generateTutorialPage(project, files);
     }
 
-    generateTutorialPage(project: CustomHtmlWithProps[], files: File[] | null | undefined): HTMLDivElement {
+    generateTutorialPage(project: CustomHtmlWithProps[], files: File[] | BlobResponse[] | null | undefined): HTMLDivElement {
         const mainDiv = document.createElement('div');
         mainDiv.style.width = '100%';
         mainDiv.style.height = '100%';
@@ -24,16 +25,29 @@ export class LatexServiceService {
             const validHtmlElement = this.generateHtmlElement(htmlElement);
             if(files && (validHtmlElement instanceof HTMLVideoElement || validHtmlElement instanceof HTMLImageElement)) {
                 const srcParts = validHtmlElement.src.split('/');
-                const shortSrc = srcParts[srcParts.length - 1]
-                const previewFile = files.find(file => file.name === shortSrc);
+                const shortSrc = srcParts[srcParts.length - 1];
+                if(files.every(file => file instanceof File)) {
+                    const previewFile = files.find(file => file.name === shortSrc);
 
-                if(previewFile) reader.readAsDataURL(previewFile);
-                const readerCallback = () => {
-                    const result = reader.result;
-                    if(typeof result === 'string') validHtmlElement.src = result;
-                    reader.removeEventListener('load', readerCallback);
+                    if(previewFile) reader.readAsDataURL(previewFile);
+                    const readerCallback = () => {
+                        const result = reader.result;
+                        if(typeof result === 'string') validHtmlElement.src = result;
+                        reader.removeEventListener('load', readerCallback);
+                    }
+                    reader.addEventListener("load", readerCallback);
+                } else {
+                    const fileExtension = validHtmlElement.src.split('.')[-1];
+                    if(validHtmlElement instanceof HTMLImageElement) {
+                        const previewFile = files.find(file => file.fileName === shortSrc);
+                        validHtmlElement.src =   `data:image/${fileExtension};base64,` + previewFile?.file; 
+                    }
+                    else {
+                        const previewFile = files.find(file => file.fileName === shortSrc);
+                        validHtmlElement.src =   `data:video/${fileExtension};base64,` + previewFile?.file; 
+                    }
                 }
-                reader.addEventListener("load", readerCallback)   
+                   
                 
             }
             mainDiv.appendChild(validHtmlElement);

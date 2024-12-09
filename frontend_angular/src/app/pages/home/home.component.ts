@@ -11,7 +11,7 @@ import { SearchInputComponent } from '../../components/search-input/search-input
             <source src='/Homepage_Background.mp4' type='video/mp4'/>
         </video>
         <section class="home-hero-section">
-          <h1 class="home-hero-header">All tutorials in one place</h1>
+          <h4 class="light">All tutorials in one place</h4>
           <span class="home-hero-description">Discover tutorials created by our community</span>
           <app-search-input/>
         </section>

@@ -1,6 +1,15 @@
 export enum TutorialCategory {
-    MATHEMATICS = 'mathematics',
+    MATHEMATICS = 'math',
     AI = 'ai',
     PROGRAMMING = 'programming',
-    GEOGRAPHY = 'geography'
+    GEOGRAPHY = 'geography',
+    BIOLOGY = 'biology',
+    PHYSICS = 'physics',
+    LANGUAGE = 'language',
+    CS = 'cs',
+    CHEMISTRY = 'chemistry',
+    PHILOSPHY = 'philosophy',
+    FITNESS = 'fitness',
+    COOKING = 'cooking',
+    OTHER = 'other'
 }

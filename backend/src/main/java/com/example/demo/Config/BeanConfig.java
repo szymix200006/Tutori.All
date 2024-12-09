@@ -1,6 +1,7 @@
 package com.example.demo.Config;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -60,6 +61,5 @@ public class BeanConfig {
     public AuditorAware<Integer> auditorAware() {
         return new ApplicationAuditAware();
     }
-
 
 }

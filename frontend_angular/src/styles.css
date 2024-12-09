@@ -2,6 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import '../node_modules/ng-katex/node_modules/katex/dist/katex.css';
 
+:root {
+    /* colors */
+    --clr-primary-hover: #0bc20bdd; 
+    --clr-primary: #0bc20b;
+    --clr-light: #ffffff;
+    --clr-dark: #0c0c0c;
+    --clr-error: #e00202;
+    --clr-secondary: #d4d0d0;
+    --clr-secondary-hover: #bdb9b9;
+
+    /* font-size */
+    --ft-size-100: 0.75rem;
+    --ft-size-200: 1rem;
+    --ft-size-300: 1.25rem;
+    --ft-size-400: 1.5rem;
+    --ft-size-500: 2rem;
+    --ft-size-600: 2.25rem;
+    --ft-size-700: 2.5rem;
+    --ft-size-800: 3.5rem;
+
+    /* spacing */
+    --spacing-100: 0.25rem;
+    --spacing-200: 0.75rem;
+    --spacing-300: 1rem;
+    --spacing-400: 1.25rem;
+    --spacing-500: 1.5rem;
+    --spacing-600: 2rem;
+    --spacing-700: 2.25rem;
+    --spacing-800: 5rem;
+    --spacing-900: 20rem;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,15 +46,15 @@
 
 button {
     padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 30px;
-    color: white;
+    font-size: var(--ft-size-200);
+    border-radius: 2rem;
+    color: var(--clr-light);
     border: none;
     font-weight: bold;
 }
 
 button.primary {
-    background-color: #0bc20b;
+    background-color: var(--clr-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,5 +62,65 @@ button.primary {
 }
 
 button.primary:hover {
-    background-color: #0bc20bdd;
+    background-color: var(--clr-primary-hover);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: var(--ft-size-800);
+}
+
+h2 {
+    font-size: var(--ft-size-700);
+}
+
+h3 {
+    font-size: var(--ft-size-600)
+}
+
+h4 {
+    font-size: var(--ft-size-300);
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.light {
+    color: var(--clr-light);
+}
+
+.dark {
+    color: var(--clr-dark);
+}
+
+.form-input-wrapper {
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+}
+
+.form-label {
+    font-size: var(--ft-size-200);
+}
+
+.form-input {
+    font-size: var(--ft-size-200);
+    padding: var(--spacing-200);
+    border: 1px solid rgb(129, 129, 129);
+    border-radius: 0.75rem;
+}
+
+.form-error {
+    color: var(--clr-error);
+    font-size: var(--ft-size-100);
+} 
+
+a.primary {
+    text-decoration: none;
+    color: var(--clr-primary);
 }

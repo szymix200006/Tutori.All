@@ -14,5 +14,7 @@ public class TutorialCover {
     private Integer id;
     private String title;
     private byte[] cover;
-    private User user;
+    private String user;
+    private String category;
+    private String createdAt;
 }

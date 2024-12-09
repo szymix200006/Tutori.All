@@ -9,14 +9,11 @@ import { UserServiceService } from '../../services/user-service.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   template: `
-    <main class="login">
-      <header class="login-header">
-        <img src="/Logo_Big_Black.png" alt="logo-black">
-      </header>
-      <section class="form-wrapper">
-        <form [formGroup]="signUpForm" (submit)="submitSignInForm()" class='login-form'>
-          <h3 class="form-header">Sign Up</h3>
-          <section class="input-wrapper">
+    <main class="signup">
+      
+        <form [formGroup]="signUpForm" (submit)="submitSignInForm()" class='form-wrapper'>
+          <h3 class="dark bold">Sign Up</h3>
+          <section class="form-input-wrapper">
             <label for="username" class="form-label">Username</label>
             <input required type="text" id="username" class="form-input" formControlName="username">
             <small *ngIf="username?.invalid && (username?.dirty || username?.touched)" class='form-error'>
@@ -24,7 +21,7 @@ import { UserServiceService } from '../../services/user-service.service';
             </small>
           </section>
 
-          <section class="input-wrapper">
+          <section class="form-input-wrapper">
             <label for="email" class="form-label">Email</label>
             <input required type="text" id="email" class="form-input" formControlName="email">
             <small *ngIf="email?.invalid && (email?.dirty || email?.touched)" class='form-error'>
@@ -32,7 +29,7 @@ import { UserServiceService } from '../../services/user-service.service';
             </small>
           </section>
 
-          <section class="input-wrapper">
+          <section class="form-input-wrapper">
             <label for="password" class="form-label">Password</label>
             <input required type="password" id="password" class="form-input" formControlName="password">
             <small *ngIf="password?.invalid && (password?.dirty || password?.touched)" class='form-error'>
@@ -40,7 +37,7 @@ import { UserServiceService } from '../../services/user-service.service';
             </small>
           </section>
 
-          <section class="input-wrapper">
+          <section class="form-input-wrapper">
             <label for="repeatPassword" class="form-label">Repeat Password</label>
             <input required type="password" id="repeatPassword" class="form-input" formControlName="repeatPassword">
             <small *ngIf="repeatPassword?.invalid && (repeatPassword?.dirty || repeatPassword?.touched)" class='form-error'>
@@ -52,14 +49,19 @@ import { UserServiceService } from '../../services/user-service.service';
           </section>
 
           <section class='auth-errors'>
-            <small *ngFor="let error of errors">{{error}}</small>
+            <small *ngFor="let error of errors" class="form-error">{{error}}</small>
           </section>
 
-          <span class="signup-link">Already have an account? <a  routerLink="/login">Login</a></span>
+          <span class="signup-link">Already have an account? <a class="primary" routerLink="/login">Login</a></span>
 
           <button type="submit" class="primary">Sign Up</button>
         </form>
-        <img src="/Sign_Up.jpg" alt="form-image" class='form-image'>
+        
+      <section class="hero-section-wrapper">
+        <section class="hero-header">
+          <img src="/Logo_Small.png" alt="logo">
+        </section>
+        <h2 class="hero-section light">Join us to learn</h2>
       </section>
     </main>
   `,

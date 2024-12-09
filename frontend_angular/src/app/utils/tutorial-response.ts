@@ -1,8 +1,11 @@
+import { BlobResponse } from "./blob-response"
+
 export type TutorialResponse = {
     id: number,
     title: string,
-    cover: File,
+    cover: string[],
     contents: string,
     user: number,
-    createdAt: Date
+    createdAt: Date,
+    files: BlobResponse[];
 }

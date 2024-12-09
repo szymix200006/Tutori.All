@@ -3,6 +3,7 @@ package com.example.demo.Repositories;
 import com.example.demo.Entities.Tutorial;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface TutorialRepository extends JpaRepository<Tutorial, Integer> {
             SELECT tutorial 
             FROM Tutorial tutorial 
             WHERE tutorial.title 
-            LIKE '%:query%'
+            LIKE %:query%
            """)
-    List<Tutorial> findAllWithQuery(String query);
+    List<Tutorial> findAllWithQuery(@Param("query") String query);
 }

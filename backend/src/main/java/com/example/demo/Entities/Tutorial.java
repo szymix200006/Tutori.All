@@ -1,5 +1,6 @@
 package com.example.demo.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedBy;
@@ -21,10 +22,10 @@ public class Tutorial {
     @Id
     @GeneratedValue
     private Integer id;
-    @Lob
-    private byte[] cover;
+    private String cover;
     private String title;
     private String contents;
+    private String category;
 
     @CreatedDate
     @Column(name="created_date", nullable = false, updatable = false)
@@ -38,11 +39,9 @@ public class Tutorial {
    @Column(nullable = false, updatable = false)
    private Integer createdBy;
 
-    @ElementCollection
-    @CollectionTable(name = "document_blobs", joinColumns = @JoinColumn(name = "document_id"))
-    @Column(name = "content", columnDefinition = "BLOB")
-    @Lob
-    private List<byte[]> mediaList;
+   @OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL)
+   @JsonIgnore
+   private List<DocumentBlob> mediaList;
 
 
 }

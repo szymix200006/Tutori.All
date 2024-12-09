@@ -1,0 +1,18 @@
+.tutorial-sort-button {
+    padding: 10px 15px;
+    border-radius: 0.5rem;
+    /* background-color: var(--clr-primary); */
+    /* color: var(--clr-light); */
+    /* border: none; */
+    font-size: var(--ft-size-200);
+    font-weight: 300;
+}
+
+/* .tutorial-sort-button:hover {
+    background-color: var(--clr-primary-hover);
+} */
+
+/* .tutorial-sort-button option {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+} */

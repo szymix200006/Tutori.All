@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.sql.Blob;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,6 +17,7 @@ public class TutorialResponse {
     private String title;
     private byte[] cover;
     private String contents;
-    private User user;
+    private String user;
     private LocalDateTime createdAt;
+    private List<BlobResponse> files;
 }

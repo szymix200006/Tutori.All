@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
       <button class="search-input-icon" type='submit'>
         <span class="material-symbols-outlined">search</span>
       </button>
-      <input type="text" name="search" placeholder="Find your tutorial" class='search-input' formControlName="searchQuery" (keydown)="onKeyDown($event)"/>
+      <input type="text" name="query" placeholder="Find your tutorial" class='search-input' formControlName="searchQuery" (keydown.enter)="navigateToTutorials()"/>
     </form>
   `,
   styleUrl: './search-input.component.css'
@@ -24,12 +24,6 @@ export class SearchInputComponent {
   constructor(private router: Router) {}
 
   navigateToTutorials(): void {
-    this.router.navigate(['/tutorials'], {queryParams: {query: this.searchInputForm.get('searchQuery')?.value}});
-  }
-
-  onKeyDown(event: KeyboardEvent): void {
-    if(event.key === 'Enter') {
-      this.navigateToTutorials();
-    }
+    this.router.navigate(['/tutorials'], {queryParams: {query: this.searchInputForm.value.searchQuery}});
   }
 }

@@ -1,12 +1,46 @@
 .tutorials {
-    margin-top: 10vh; 
+    margin-top: 10vh;
     width: 100%;
-    background-color: white;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tutorial-filters {
+    width: 100%;
+    display: flex;
+    padding: var(--spacing-400);
     box-sizing: border-box;
-    flex-direction: row;
-    gap: 10px;
+    justify-content: space-around;
+}
+
+.tutorial-filter-reset {
+    font-size: var(--ft-size-100);
+    border-radius: 0.5rem;
+    background-color: var(--clr-error);
+}
+
+.tutorials-list {
+    /* width: 100%; */
+    background-color: var(--clr-light);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: var(--spacing-400);
+    box-sizing: border-box;
+    gap: var(--spacing-200);
+}
+
+.tutorial-filter {
+    font-size: var(--ft-size-100);
+    border-radius: 0.5rem;
+    background-color: var(--clr-secondary);
+}
+
+.tutorial-filter:hover {
+    background-color: var(--clr-secondary-hover);
+}
+
+.tutorial-filter:focus, .active {
+    background-color: var(--clr-primary);
 }
