@@ -9,9 +9,15 @@ import { provideToastr } from 'ngx-toastr';
 import { httpInterceptorInterceptor } from './interceptors/http-interceptor.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch(), withInterceptors([httpInterceptorInterceptor])), provideAnimations(), provideToastr({
-    timeOut: 2000,
-    positionClass: 'toast-top-left',
-    preventDuplicates: true,
-  })]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes), 
+    provideClientHydration(), 
+    provideHttpClient(withFetch(), withInterceptors([httpInterceptorInterceptor])), 
+    provideAnimations(), 
+    provideToastr({
+      timeOut: 2000,
+      positionClass: 'toast-top-left',
+      preventDuplicates: true,
+    })]
 };

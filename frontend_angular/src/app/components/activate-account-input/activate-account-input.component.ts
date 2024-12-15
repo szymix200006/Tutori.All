@@ -29,22 +29,27 @@ export class ActivateAccountInputComponent implements ControlValueAccessor{
   value: string | null = null;
   onChange: any = () => {};
   onTouch: any = () => {};
-  touched = false;
-  disabled = false;
+  touched: boolean = false;
+  disabled: boolean = false;
 
   constructor() {}
-  focus() {
+
+  focus(): void {
     this.input.nativeElement.focus();
   }
+
   writeValue(obj: any): void {
     this.value = obj;
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
+
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }

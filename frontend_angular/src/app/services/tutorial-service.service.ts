@@ -21,27 +21,23 @@ export class TutorialServiceService {
       return this.http.get<TutorialIcon[]>(this.url);
   }
 
-  async getTutorialIcons(query: string) {
-
-  }
-
   saveTutorial(tutorialRequest: TutorialRequest): Observable<number> {
     return this.http.post<number>(`${this.baseUrl}${ApiPaths.SAVE_TUTORIAL}`, tutorialRequest);
   }
 
-  getTutorials(query: string) {
+  getTutorials(query: string): Observable<TutorialCover[]> {
     return this.http.get<TutorialCover[]>(`${this.baseUrl}${ApiPaths.GET_TUTORIALS}${query}`);
   }
 
-  getTutorialById(id: number) {
+  getTutorialById(id: number): Observable<TutorialResponse> {
     return this.http.get<TutorialResponse>(`${this.baseUrl}${ApiPaths.GET_TUTORIAL_BY_ID}${id}`);
   }
 
-  saveTutorialCover(id: number, formData: FormData) {
+  saveTutorialCover(id: number, formData: FormData): Observable<Object> {
     return this.http.post(`${this.baseUrl}${ApiPaths.SAVE_COVER}${id}`, formData);
   }
 
-  saveTutorialMedia(id: number, formData: FormData) {
+  saveTutorialMedia(id: number, formData: FormData): Observable<Object> {
     return this.http.post(`${this.baseUrl}${ApiPaths.SAVE_MEDIA}${id}`, formData)
   }
 }

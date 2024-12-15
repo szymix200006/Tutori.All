@@ -2,13 +2,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HeaderUploadComponent } from '../../components/header-upload/header-upload.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-// import { LatexServiceService } from '../latex-service.service';
 import { inject } from '@angular/core';
 import { LatexServiceService } from '../../services/latex-service.service';
 import { TutorialServiceService } from '../../services/tutorial-service.service';
-import { TokenServiceService } from '../../services/token-service.service';
 import { ToastrService } from 'ngx-toastr';
-import { fileURLToPath } from 'node:url';
 import { Base64ConvertService } from '../../services/base64-convert.service';
 import { TutorialCategory } from '../../utils/tutorial-category';
 
@@ -70,48 +67,6 @@ import { TutorialCategory } from '../../utils/tutorial-category';
         <section class="upload-preview-container">
           <article class="upload-preview" #outputContainer></article>
         </section>
-      <!-- <section class="upload-column">
-        <h1 class="upload-header">
-          Write your LaTeX here
-        </h1>
-        <form class="upload-form" [formGroup]="latexForm" (submit)="onLatexFormSubmit()">
-          <section class="tutorial-info">
-            <label for="title" class="tutorial-info-label">
-              Title 
-              <input type="text" formControlName="title" id="title" class="tutorial-info-input-text">
-              <small *ngIf="title?.invalid && (title?.dirty || title?.touched)">Title is required.</small>
-            </label>
-            <label for="cover" class="tutorial-info-label">Cover <input type="file" (change)="onCoverUpload($event)" id="cover" class="tutorial-info-input-file"></label>
-            <small *ngFor="let error of errors">{{error}}</small>
-          </section>
-          <textarea placeholder="Write here" class="upload-latex" formControlName="contents" (change)="onLatexChange()"></textarea>
-          <small *ngIf="contents?.invalid && (contents?.dirty || contents?.touched)">Latex is required</small>
-            <button class="primary" type="button">
-              <label for="latex-files">Add Files</label>
-            </button>
-          <input type="file" id="latex-files" multiple (change)="onFileUpload($event)" class="no-display-file-input"/>
-          <input type="submit" value="Submit">
-        </form>
-        <section class="upload-files">
-          <h3 class="upload-selected-files-header" *ngIf="latexForm.value.files && latexForm.value.files.length > 0">Selected files</h3>
-          <ul class="upload-selected-files-list">
-            <li *ngFor="let file of latexForm.value.files" class="upload-selected-file">
-              {{file.name}}
-              <button (click)="deleteFile(file.name)" class="upload-delete-selected-file">
-                <span class="material-symbols-outlined upload-delete-selected-file-icon">close</span>
-              </button>
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="upload-column">
-        <h1 class="upload-header">
-          Preview
-        </h1>
-        <article class="upload-preview-content" #outputContainer>
-
-        </article>
-      </section> -->
       </section>
     </main>
   `,
@@ -189,7 +144,9 @@ export class UploadPageComponent {
       && (this.latexForm.value.title !== null && this.latexForm.value.title !== undefined)
       && (this.latexForm.value.cover !== null && this.latexForm.value.cover !== undefined)
       && (this.latexForm.value.contents !== null && this.latexForm.value.contents !== undefined)
-      && (this.latexForm.value.files !== null && this.latexForm.value.files !== undefined)) {
+      && (this.latexForm.value.files !== null && this.latexForm.value.files !== undefined)
+      &&(this.latexForm.value.category !== null && this.latexForm.value.category !== undefined)
+    ) {
         const parsedFiles = (await this.base64ConvertService.convertArrayFilesToBase64(this.latexForm.value.files)).map(file => {
           return file.replace(/^data:image\/[a-zA-Z]+;base64,/, '');
         });
@@ -201,7 +158,7 @@ export class UploadPageComponent {
           mediaList.append('files', file);
           mediaList.append('names', file.name);
         }
-      this.tutorialService.saveTutorial({title: this.latexForm.value.title, contents: this.latexForm.value.contents}).subscribe({
+      this.tutorialService.saveTutorial({title: this.latexForm.value.title, contents: this.latexForm.value.contents, category: this.latexForm.value.category}).subscribe({
         next: response => {
           this.toasterService.info(`Tutorial saved with id ${response}`);
           this.tutorialService.saveTutorialCover(response, coverData).subscribe();

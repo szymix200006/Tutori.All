@@ -20,7 +20,3 @@ export type CustomHtmlWithProps = {
     element: string;
     properties: StaticHtmlProperties | MediaHtmlProperties;
 }
-
-// {
-//     [k: string]: string;
-// };

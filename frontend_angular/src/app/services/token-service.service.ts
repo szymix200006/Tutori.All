@@ -31,7 +31,7 @@ export class TokenServiceService {
     return !this.isTokenValid();
   }
 
-  isTokenValid() {
+  isTokenValid(): boolean {
     const token = this.token;
     if(!token) {
       return false;
